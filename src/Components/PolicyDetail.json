@@ -1,0 +1,13 @@
+[{
+    "policy": 1234,
+    "detail": "John Smith, Auto"
+},{
+    "policy": 1235,
+    "detail": "Jim Host, Property"
+},{
+    "policy": 1236,
+    "detail": "Mark Somebody, Auto"
+    },{
+        "policy": 1237,
+        "detail": "Anyone Ananymous, Property"
+}]
