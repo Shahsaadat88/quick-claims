@@ -1,12 +1,17 @@
 
 import { useReducer, useState } from 'react'
 import './AddClaim.css'
+import TimePicker from 'react-time-picker'
 const AddClaim = () => {
 
     const initialNewClaimState = {policyNumber : "", 
-    date : new Date().toISOString().slice(0,10) , time : new Time().toISOString().slice(0,5) , Title : "",
+    date : new Date().toISOString().slice(0,10) , time:"" , title : "",
     firstName: "", lastName: "",
     dob: new Date().toISOString().slice(0,10), description:""}
+
+    const UploadImage = () => {
+        const [selectedImage, setSelectedImage] = useState(null);
+    }
 
     const formReducer = (state, data) => {
         return {...state, [data.feild] : data.value}
@@ -65,14 +70,14 @@ const AddClaim = () => {
       <input type="date" required="required" id="date" value={newClaim.date} onChange= {handleChange}/>
       <br/>
       <label htmlFor="date">Estimate time of the Event*</label>
-      <input type="time" required="required" id="time" value={newClaim.time} onChange= {handleChange}/>
+      <TimePicker onChange={onChange} value={value} />
       <br/> 
       <label htmlFor="title">Title</label>
       <select name="title" id="title" value={newClaim.title} onChange= {handleChange}>
             <option value="Mr">Mr</option>
             <option value="Miss">Miss</option>
             <option value="Mrs">Mrs</option>
-            <option value="Ms">Mrs</option>
+            <option value="Ms">Ms</option>
             <option value="Mx">Mx</option>
             <option value="Dr">Dr</option>
       </select>
@@ -88,7 +93,7 @@ const AddClaim = () => {
       <br/>
       <label htmlFor="description">Please describe reason for Claim</label>
       <br/>
-      <input type="textarea"  required="required" id="description" value={newClaim.description} onChange= {handleChange}/>
+      <textarea  required="required" id="description" value={newClaim.description} onChange= {handleChange}/>
       <br/>
       <button type="submit">Save</button>
       <div>message goes here based on a stateful variable</div>
